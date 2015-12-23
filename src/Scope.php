@@ -304,6 +304,7 @@ class Scope
         if (is_callable($transformer)) {
             $transformedData = call_user_func($transformer, $data);
         } else {
+            $transformer->setCurrentScope($this);
             $transformedData = $transformer->transform($data);
         }
 
